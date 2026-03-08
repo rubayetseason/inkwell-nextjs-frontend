@@ -1,24 +1,54 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { motion } from "framer-motion";
-import { Feather, Mail, Lock, Eye, EyeOff, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
+import { authApi } from "@/services/auth.services";
+import { useAuthStore } from "@/store/auth.store";
+import { motion } from "framer-motion";
+import { ArrowRight, Eye, EyeOff, Feather, Lock, Mail } from "lucide-react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const { login } = useAuthStore();
   const router = useRouter();
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!email || !password) {
+      toast({
+        title: "Missing fields",
+        description: "Please fill in all fields.",
+        variant: "destructive",
+      });
+      return;
+    }
+    setIsLoading(true);
+    try {
+      const res = await authApi.login({ email, password });
+      login(res.data.user, res.data.access_token);
+      toast({
+        title: "Welcome back!",
+        description: `Signed in as ${res.data.user.username}`,
+      });
+      router.push("/");
+    } catch (err: any) {
+      toast({
+        title: "Login failed",
+        description:
+          err?.response?.data?.message || "Invalid email or password.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (

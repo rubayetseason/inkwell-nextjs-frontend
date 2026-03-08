@@ -1,8 +1,8 @@
+"use client";
 import { motion } from "framer-motion";
 import { PenLine, ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { Navbar } from "@/components/layout/navbar";
-
 import { Button } from "@/components/ui/button";
 import { useAuthStore } from "@/store/auth.store";
 import { TimelineFeed } from "@/components/blog/timeline-feed";
