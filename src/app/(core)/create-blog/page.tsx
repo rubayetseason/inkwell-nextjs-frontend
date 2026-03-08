@@ -11,7 +11,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft, ImageIcon, Save } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function CreateBlogPage() {
   const [form, setForm] = useState({
@@ -25,10 +25,11 @@ export default function CreateBlogPage() {
   const { toast } = useToast();
   const { user } = useAuthStore();
 
-  if (!user) {
-    router.push("/login");
-    return null;
-  }
+  useEffect(() => {
+    if (!user) {
+      router.push("/login");
+    }
+  }, [user]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -78,6 +79,8 @@ export default function CreateBlogPage() {
       setIsLoading(false);
     }
   };
+
+  if (!user) return null;
 
   return (
     <div className="min-h-screen">
