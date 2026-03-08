@@ -7,8 +7,6 @@ interface AuthState {
   isLoading: boolean;
   setUser: (user: User | null) => void;
   setToken: (token: string | null) => void;
-  login: (user: User, token: string) => void;
-  logout: () => void;
   initialize: () => void;
 }
 
@@ -19,22 +17,6 @@ export const useAuthStore = create<AuthState>((set) => ({
 
   setUser: (user) => set({ user }),
   setToken: (token) => set({ token }),
-
-  login: (user, token) => {
-    if (typeof window !== "undefined") {
-      localStorage.setItem("token", token);
-      localStorage.setItem("user", JSON.stringify(user));
-    }
-    set({ user, token });
-  },
-
-  logout: () => {
-    if (typeof window !== "undefined") {
-      localStorage.removeItem("token");
-      localStorage.removeItem("user");
-    }
-    set({ user: null, token: null });
-  },
 
   initialize: () => {
     if (typeof window !== "undefined") {
