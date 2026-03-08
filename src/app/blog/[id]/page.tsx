@@ -50,6 +50,21 @@ export default function BlogDetailPage() {
     fetchBlog();
   }, [id]);
 
+  const handleDelete = async () => {
+    if (!confirm("Are you sure you want to delete this post?")) return;
+    try {
+      await blogsApi.delete(id);
+      toast({ title: "Deleted", description: "Your post has been deleted." });
+      router.push("/");
+    } catch {
+      toast({
+        title: "Error",
+        description: "Failed to delete post.",
+        variant: "destructive",
+      });
+    }
+  };
+
   const isAuthor = user && blog?.author?._id === user._id;
   const isFollowingAuthor =
     user && blog
@@ -135,9 +150,7 @@ export default function BlogDetailPage() {
 
             <div className="flex items-center gap-2">
               {/* {!isAuthor && (
-                <FollowButton
-                
-                />
+                <FollowButton  />
               )} */}
               {isAuthor && (
                 <>
@@ -150,6 +163,7 @@ export default function BlogDetailPage() {
                   <Button
                     variant="outline"
                     size="sm"
+                    onClick={handleDelete}
                     className="gap-2 border-destructive/30 text-destructive hover:bg-destructive/10"
                   >
                     <Trash2 className="w-4 h-4" />
