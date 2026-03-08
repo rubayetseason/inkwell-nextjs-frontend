@@ -123,6 +123,16 @@ Key AI capabilities:
 
 ------------------------------------------------------------------------
 
+# 🔑 Demo Account
+
+| Email | Password |
+|------|---------|
+| season@season.com | 123456 |
+
+Use this account to explore the AI blogging features without creating a new account.
+
+------------------------------------------------------------------------
+
 # ⚙️ Environment Variables
 
 Create a **.env.local** file in the root of the project.
