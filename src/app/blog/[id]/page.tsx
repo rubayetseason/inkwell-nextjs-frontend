@@ -23,6 +23,8 @@ import { blogsApi } from "@/services/blogs.services";
 import { getAvatarFallback } from "@/helpers/getAvatarFallback";
 import { formatDate } from "@/helpers/formatRelativeTime";
 import { FollowButton } from "@/components/user/follow-button";
+import { AIInsightButton } from "@/components/ai/ai-insight-button";
+import { LikeDislikeButtons } from "@/components/blog/like-dislike-buttons";
 
 export default function BlogDetailPage() {
   const { id } = useParams<{ id: string }>();
@@ -214,14 +216,14 @@ export default function BlogDetailPage() {
                   Share your reaction below
                 </p>
               </div>
-              {/* <div className="flex items-center gap-3">
-                <AIInsightButton />
-                <LikeDislikeButtons
-                  blog={blog}
-                  onUpdate={setBlog}
-                  size="lg"
+              <div className="flex items-center gap-3">
+                <AIInsightButton
+                  blogId={blog._id}
+                  title={blog.title}
+                  content={blog.content}
                 />
-              </div> */}
+                <LikeDislikeButtons blog={blog} onUpdate={setBlog} size="lg" />
+              </div>
             </div>
           </div>
 

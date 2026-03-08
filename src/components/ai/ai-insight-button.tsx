@@ -2,15 +2,10 @@
 
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
+import { aiApi } from "@/services/ai.services";
 import { useAuthStore } from "@/store/auth.store";
 import { AnimatePresence, motion } from "framer-motion";
-import {
-    BookOpen,
-    ChevronRight,
-    Sparkles,
-    X,
-    Zap
-} from "lucide-react";
+import { BookOpen, ChevronRight, Sparkles, X, Zap } from "lucide-react";
 import { useState } from "react";
 
 interface AIInsightButtonProps {
@@ -32,6 +27,33 @@ export function AIInsightButton({
   const [isLoading, setIsLoading] = useState(false);
   const { user } = useAuthStore();
   const { toast } = useToast();
+
+  const handleAnalyze = async (selectedMode: Mode) => {
+    if (!user) {
+      toast({
+        title: "Sign in required",
+        description: "Please sign in to use AI features.",
+        variant: "destructive",
+      });
+      return;
+    }
+    setMode(selectedMode);
+    setResult("");
+    setIsLoading(true);
+    try {
+      const res = await aiApi.analyzeBlog(content, title, selectedMode);
+      setResult(res.data.result);
+    } catch (err: any) {
+      toast({
+        title: "AI error",
+        description: err?.response?.data?.message || "Failed to analyze blog.",
+        variant: "destructive",
+      });
+      setMode(null);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const handleClose = () => {
     setIsOpen(false);
