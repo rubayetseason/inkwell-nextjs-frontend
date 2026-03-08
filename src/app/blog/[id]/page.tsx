@@ -22,6 +22,7 @@ import { useAuthStore } from "@/store/auth.store";
 import { blogsApi } from "@/services/blogs.services";
 import { getAvatarFallback } from "@/helpers/getAvatarFallback";
 import { formatDate } from "@/helpers/formatRelativeTime";
+import { FollowButton } from "@/components/user/follow-button";
 
 export default function BlogDetailPage() {
   const { id } = useParams<{ id: string }>();
@@ -149,9 +150,13 @@ export default function BlogDetailPage() {
             </Link>
 
             <div className="flex items-center gap-2">
-              {/* {!isAuthor && (
-                <FollowButton  />
-              )} */}
+              {!isAuthor && (
+                <FollowButton
+                  userId={blog.author?._id}
+                  initialIsFollowing={!!isFollowingAuthor}
+                  size="sm"
+                />
+              )}
               {isAuthor && (
                 <>
                   <Link href={`/blog/${blog._id}/edit`}>
@@ -248,9 +253,13 @@ export default function BlogDetailPage() {
                       {(blog.author?.followers as any[])?.length || 0} followers
                     </p>
                   </div>
-                  {/* {!isAuthor && (
-                    <FollowButton />
-                  )} */}
+                  {!isAuthor && (
+                    <FollowButton
+                      userId={blog.author?._id}
+                      initialIsFollowing={!!isFollowingAuthor}
+                      size="sm"
+                    />
+                  )}
                 </div>
                 {blog.author?.bio && (
                   <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
