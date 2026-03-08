@@ -1,6 +1,5 @@
 "use client";
 
-import { Navbar } from "@/components/layout/navbar";
 import { Button } from "@/components/ui/button";
 import { COLUMNS } from "@/constants/kanban";
 import { useToast } from "@/hooks/use-toast";
@@ -107,7 +106,6 @@ export default function KanbanPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
 
       <main className="pt-20 px-4 pb-8">
         {/* Header */}

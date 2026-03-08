@@ -5,7 +5,6 @@ import { useParams, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Save, ArrowLeft, ImageIcon, Loader2 } from "lucide-react";
 import Link from "next/link";
-import { Navbar } from "@/components/layout/navbar";
 import { BlogEditor } from "@/components/blog/blog-editor";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -88,7 +87,6 @@ export default function EditBlogPage() {
 
   return (
     <div className="min-h-screen">
-      <Navbar />
       <main className="max-w-4xl mx-auto px-4 sm:px-6 pt-24 pb-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

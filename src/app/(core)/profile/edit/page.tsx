@@ -1,6 +1,5 @@
 "use client";
 
-import { Navbar } from "@/components/layout/navbar";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -84,7 +83,6 @@ export default function EditProfilePage() {
 
   return (
     <div className="min-h-screen">
-      <Navbar />
 
       <main className="max-w-2xl mx-auto px-4 sm:px-6 pt-24 pb-16">
         <motion.div

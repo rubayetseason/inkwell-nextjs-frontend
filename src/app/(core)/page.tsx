@@ -2,7 +2,6 @@
 import { motion } from "framer-motion";
 import { PenLine, ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
-import { Navbar } from "@/components/layout/navbar";
 import { Button } from "@/components/ui/button";
 import { useAuthStore } from "@/store/auth.store";
 import { TimelineFeed } from "@/components/blog/timeline-feed";
@@ -11,8 +10,6 @@ export default function HomePage() {
   const { user } = useAuthStore();
   return (
     <div className="min-h-screen">
-      <Navbar />
-
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
         {/* Hero */}
         {!user && (

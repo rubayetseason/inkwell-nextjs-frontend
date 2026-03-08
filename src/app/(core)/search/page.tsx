@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Search, User, FileText, Loader2, ArrowLeft, X } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { Navbar } from "@/components/layout/navbar";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { FollowButton } from "@/components/user/follow-button";
@@ -67,8 +66,6 @@ export default function SearchPage() {
 
   return (
     <div className="min-h-screen">
-      <Navbar />
-
       <main className="max-w-3xl mx-auto px-4 sm:px-6 pt-24 pb-16">
         {/* Search bar */}
         <motion.div

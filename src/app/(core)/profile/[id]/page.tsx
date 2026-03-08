@@ -6,7 +6,6 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Calendar, Users, BookOpen, Loader2 } from "lucide-react";
 import Link from "next/link";
-import { Navbar } from "@/components/layout/navbar";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { FollowButton } from "@/components/user/follow-button";
@@ -90,7 +89,6 @@ export default function ProfilePage() {
 
   return (
     <div className="min-h-screen">
-      <Navbar />
 
       {/* Cover Photo */}
       <div className="relative h-48 sm:h-64 bg-gradient-to-br from-primary/20 via-muted to-secondary mt-16">

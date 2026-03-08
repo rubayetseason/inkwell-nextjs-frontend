@@ -13,7 +13,6 @@ import {
   Trash2,
   Loader2,
 } from "lucide-react";
-import { Navbar } from "@/components/layout/navbar";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Blog } from "@/types";
@@ -92,7 +91,6 @@ export default function BlogDetailPage() {
 
   return (
     <div className="min-h-screen">
-      <Navbar />
 
       <main className="max-w-3xl mx-auto px-4 sm:px-6 pt-24 pb-16">
         {/* Back */}
