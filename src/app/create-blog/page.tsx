@@ -1,10 +1,12 @@
 "use client";
 
+import { BlogEditor } from "@/components/blog/blog-editor";
 import { Navbar } from "@/components/layout/navbar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { blogsApi } from "@/services/blogs.services";
 import { useAuthStore } from "@/store/auth.store";
 import { motion } from "framer-motion";
 import { ArrowLeft, ImageIcon, Save } from "lucide-react";
@@ -37,6 +39,45 @@ export default function CreateBlogPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!form.title.trim()) {
+      toast({
+        title: "Title required",
+        description: "Please add a title for your post.",
+        variant: "destructive",
+      });
+      return;
+    }
+    if (!form.shortDescription.trim()) {
+      toast({
+        title: "Description required",
+        description: "Please add a short description.",
+        variant: "destructive",
+      });
+      return;
+    }
+    if (!form.content || form.content === "<p></p>") {
+      toast({
+        title: "Content required",
+        description: "Please write some content.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsLoading(true);
+    try {
+      const res = await blogsApi.create(form);
+      toast({ title: "Published!", description: "Your post is now live." });
+      router.push(`/blog/${res.data._id}`);
+    } catch (err: any) {
+      toast({
+        title: "Failed to publish",
+        description: err?.response?.data?.message || "Something went wrong.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -129,6 +170,12 @@ export default function CreateBlogPage() {
               <label className="text-sm font-medium text-muted-foreground">
                 Content
               </label>
+              <BlogEditor
+                content={form.content}
+                onChange={(content) =>
+                  setForm((prev) => ({ ...prev, content }))
+                }
+              />
             </div>
 
             {/* Bottom submit */}
