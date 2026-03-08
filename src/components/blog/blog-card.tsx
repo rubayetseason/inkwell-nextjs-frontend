@@ -42,7 +42,7 @@ export function BlogCard({ blog, index = 0 }: BlogCardProps) {
             <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-muted to-secondary flex items-center justify-center">
               <span
                 className="text-5xl font-bold text-primary/30 select-none"
-                style={{ fontFamily: "var(--font-display)" }}
+                style={{ fontFamily: "var(--font-epilogue)" }}
               >
                 {blog.title?.[0]}
               </span>
@@ -76,7 +76,7 @@ export function BlogCard({ blog, index = 0 }: BlogCardProps) {
         <Link href={`/blog/${blog._id}`}>
           <h2
             className="text-lg font-bold mb-2 line-clamp-2 group-hover:text-primary transition-colors leading-snug"
-            style={{ fontFamily: "var(--font-display)" }}
+            style={{ fontFamily: "var(--font-epilogue)" }}
           >
             {blog.title}
           </h2>

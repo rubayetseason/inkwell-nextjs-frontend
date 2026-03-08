@@ -73,7 +73,7 @@ export default function LoginForm() {
 
         <span
           className="text-2xl font-bold"
-          style={{ fontFamily: "var(--font-display)" }}
+          style={{ fontFamily: "var(--font-epilogue)" }}
         >
           Inkwell
         </span>
@@ -83,7 +83,7 @@ export default function LoginForm() {
         <div className="mb-6">
           <h1
             className="text-2xl font-bold mb-1"
-            style={{ fontFamily: "var(--font-display)" }}
+            style={{ fontFamily: "var(--font-epilogue)" }}
           >
             Welcome back
           </h1>

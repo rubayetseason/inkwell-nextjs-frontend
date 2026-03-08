@@ -106,7 +106,6 @@ export default function KanbanPage() {
 
   return (
     <div className="min-h-screen bg-background">
-
       <main className="pt-20 px-4 pb-8">
         {/* Header */}
         <div className="max-w-[1600px] mx-auto mb-6">
@@ -120,7 +119,7 @@ export default function KanbanPage() {
               <div>
                 <h1
                   className="text-2xl font-bold"
-                  style={{ fontFamily: "var(--font-display)" }}
+                  style={{ fontFamily: "var(--font-epilogue)" }}
                 >
                   My Kanban Board
                 </h1>

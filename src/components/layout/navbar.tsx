@@ -21,7 +21,7 @@ import {
   Search,
   Settings,
   User,
-  X
+  X,
 } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -55,7 +55,7 @@ export function Navbar() {
             </motion.div>
             <span
               className="text-xl font-bold tracking-tight"
-              style={{ fontFamily: "var(--font-display)" }}
+              style={{ fontFamily: "var(--font-epilogue)" }}
             >
               Inkwell
             </span>
@@ -68,7 +68,7 @@ export function Navbar() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="text-muted-foreground hover:text-foreground"
+                className="text-muted-foreground hover:text-primary-foreground"
               >
                 <Search className="w-5 h-5" />
               </Button>
@@ -80,7 +80,7 @@ export function Navbar() {
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="gap-2 text-muted-foreground hover:text-foreground"
+                    className="gap-2 text-muted-foreground hover:text-primary-foreground"
                   >
                     <LayoutDashboard className="w-4 h-4" />
                     Board

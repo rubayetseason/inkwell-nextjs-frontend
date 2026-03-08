@@ -81,7 +81,7 @@ export default function SearchPage() {
             </Link>
             <h1
               className="text-xl font-bold"
-              style={{ fontFamily: "var(--font-display)" }}
+              style={{ fontFamily: "var(--font-epilogue)" }}
             >
               Search
             </h1>
@@ -156,7 +156,7 @@ export default function SearchPage() {
             </div>
             <p
               className="font-semibold"
-              style={{ fontFamily: "var(--font-display)" }}
+              style={{ fontFamily: "var(--font-epilogue)" }}
             >
               No results found
             </p>
@@ -270,7 +270,7 @@ export default function SearchPage() {
                             <div className="w-full h-full bg-gradient-to-br from-primary/20 to-muted flex items-center justify-center">
                               <span
                                 className="text-2xl font-bold text-primary/30"
-                                style={{ fontFamily: "var(--font-display)" }}
+                                style={{ fontFamily: "var(--font-epilogue)" }}
                               >
                                 {blog.title?.[0]}
                               </span>
@@ -281,7 +281,7 @@ export default function SearchPage() {
                         <div className="flex-1 min-w-0">
                           <h3
                             className="font-semibold text-sm group-hover:text-primary transition-colors line-clamp-1"
-                            style={{ fontFamily: "var(--font-display)" }}
+                            style={{ fontFamily: "var(--font-epilogue)" }}
                           >
                             {blog.title}
                           </h3>

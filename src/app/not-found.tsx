@@ -18,7 +18,7 @@ export default function NotFound() {
 
           <span
             className="text-2xl font-bold"
-            style={{ fontFamily: "var(--font-display)" }}
+            style={{ fontFamily: "var(--font-epilogue)" }}
           >
             Inkwell
           </span>
@@ -26,7 +26,7 @@ export default function NotFound() {
 
         <h1
           className="text-6xl font-bold mb-4"
-          style={{ fontFamily: "var(--font-display)" }}
+          style={{ fontFamily: "var(--font-epilogue)" }}
         >
           404
         </h1>

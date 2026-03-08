@@ -91,7 +91,6 @@ export default function BlogDetailPage() {
 
   return (
     <div className="min-h-screen">
-
       <main className="max-w-3xl mx-auto px-4 sm:px-6 pt-24 pb-16">
         {/* Back */}
         <motion.div
@@ -115,7 +114,7 @@ export default function BlogDetailPage() {
           {/* Title */}
           <h1
             className="text-4xl sm:text-5xl font-bold mb-6 leading-tight"
-            style={{ fontFamily: "var(--font-display)" }}
+            style={{ fontFamily: "var(--font-epilogue)" }}
           >
             {blog.title}
           </h1>

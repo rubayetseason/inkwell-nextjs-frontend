@@ -83,7 +83,6 @@ export default function EditProfilePage() {
 
   return (
     <div className="min-h-screen">
-
       <main className="max-w-2xl mx-auto px-4 sm:px-6 pt-24 pb-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -99,7 +98,7 @@ export default function EditProfilePage() {
             </Link>
             <h1
               className="text-2xl font-bold"
-              style={{ fontFamily: "var(--font-display)" }}
+              style={{ fontFamily: "var(--font-epilogue)" }}
             >
               Edit Profile
             </h1>

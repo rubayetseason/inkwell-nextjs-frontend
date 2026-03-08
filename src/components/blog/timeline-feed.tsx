@@ -92,7 +92,7 @@ export function TimelineFeed({ isAuthenticated }: TimelineFeedProps) {
         </div>
         <h3
           className="text-lg font-semibold mb-2"
-          style={{ fontFamily: "var(--font-display)" }}
+          style={{ fontFamily: "var(--font-epilogue)" }}
         >
           {isAuthenticated ? "Your feed is empty" : "No posts yet"}
         </h3>

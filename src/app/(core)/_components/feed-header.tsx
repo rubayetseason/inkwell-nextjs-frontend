@@ -16,7 +16,7 @@ export default function FeedHeader({ user }: { user: User | null }) {
       >
         <h2
           className="text-2xl font-bold"
-          style={{ fontFamily: "var(--font-display)" }}
+          style={{ fontFamily: "var(--font-epilogue)" }}
         >
           {user ? "Your Feed" : "Latest Stories"}
         </h2>

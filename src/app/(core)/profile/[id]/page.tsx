@@ -89,7 +89,6 @@ export default function ProfilePage() {
 
   return (
     <div className="min-h-screen">
-
       {/* Cover Photo */}
       <div className="relative h-48 sm:h-64 bg-gradient-to-br from-primary/20 via-muted to-secondary mt-16">
         {profile.coverPhoto && (
@@ -122,7 +121,7 @@ export default function ProfilePage() {
             <div className="flex-1">
               <h1
                 className="text-2xl font-bold"
-                style={{ fontFamily: "var(--font-display)" }}
+                style={{ fontFamily: "var(--font-epilogue)" }}
               >
                 {profile.username}
               </h1>

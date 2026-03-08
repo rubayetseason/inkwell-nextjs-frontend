@@ -101,7 +101,7 @@ export default function EditBlogPage() {
               </Link>
               <h1
                 className="text-2xl font-bold"
-                style={{ fontFamily: "var(--font-display)" }}
+                style={{ fontFamily: "var(--font-epilogue)" }}
               >
                 Edit Story
               </h1>
@@ -123,7 +123,7 @@ export default function EditBlogPage() {
               value={form.title}
               onChange={handleChange}
               className="text-2xl font-bold h-14 border-0 border-b rounded-none px-0 bg-transparent focus-visible:ring-0 focus-visible:border-primary"
-              style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem" }}
+              style={{ fontFamily: "var(--font-epilogue)", fontSize: "1.5rem" }}
             />
 
             <div className="flex items-center gap-3 p-4 bg-muted/30 rounded-xl border border-border">

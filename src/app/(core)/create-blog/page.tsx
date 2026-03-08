@@ -81,7 +81,6 @@ export default function CreateBlogPage() {
 
   return (
     <div className="min-h-screen">
-
       <main className="max-w-4xl mx-auto px-4 sm:px-6 pt-24 pb-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -100,7 +99,7 @@ export default function CreateBlogPage() {
               <div>
                 <h1
                   className="text-2xl font-bold"
-                  style={{ fontFamily: "var(--font-display)" }}
+                  style={{ fontFamily: "var(--font-epilogue)" }}
                 >
                   New Story
                 </h1>
@@ -130,7 +129,7 @@ export default function CreateBlogPage() {
                 onChange={handleChange}
                 className="text-2xl font-bold h-14 border-0 border-b rounded-none px-0 bg-transparent focus-visible:ring-0 focus-visible:border-primary placeholder:text-muted-foreground/50"
                 style={{
-                  fontFamily: "var(--font-display)",
+                  fontFamily: "var(--font-epilogue)",
                   fontSize: "1.5rem",
                 }}
               />

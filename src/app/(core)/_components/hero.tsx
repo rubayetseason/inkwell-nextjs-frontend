@@ -42,9 +42,9 @@ export default function Hero() {
       {/* Header */}
       <h1
         className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
-        style={{ fontFamily: "var(--font-display)" }}
+        style={{ fontFamily: "var(--font-clash)" }}
       >
-        Where <span className="text-primary italic">AI</span> Helps
+        Where <span className="text-primary italic">AI</span> &nbsp; Helps
         <br />
         Stories Come to Life
       </h1>
