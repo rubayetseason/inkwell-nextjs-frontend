@@ -1,4 +1,4 @@
-# 🪶 Inkwell Frontend
+# Inkwell Frontend
 
 Frontend application for **Inkwell**, an AI‑powered social blogging
 platform where writers can create, explore, and interact with stories
