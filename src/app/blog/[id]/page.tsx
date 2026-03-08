@@ -211,7 +211,11 @@ export default function BlogDetailPage() {
               </div>
               {/* <div className="flex items-center gap-3">
                 <AIInsightButton />
-                <LikeDislikeButtons />
+                <LikeDislikeButtons
+                  blog={blog}
+                  onUpdate={setBlog}
+                  size="lg"
+                />
               </div> */}
             </div>
           </div>
