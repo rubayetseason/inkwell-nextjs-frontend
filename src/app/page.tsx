@@ -5,6 +5,7 @@ import { Navbar } from "@/components/layout/navbar";
 
 import { Button } from "@/components/ui/button";
 import { useAuthStore } from "@/store/auth.store";
+import { TimelineFeed } from "@/components/blog/timeline-feed";
 
 export default function HomePage() {
   const { user } = useAuthStore();
@@ -100,6 +101,8 @@ export default function HomePage() {
             </motion.div>
           )}
         </div>
+
+        <TimelineFeed isAuthenticated={!!user} />
       </main>
     </div>
   );
