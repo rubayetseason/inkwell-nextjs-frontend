@@ -1,3 +1,4 @@
+import { access_key, user_token } from "@/constants";
 import { User } from "@/types";
 import { create } from "zustand";
 
@@ -22,24 +23,24 @@ export const useAuthStore = create<AuthState>((set) => ({
 
   login: (user, token) => {
     if (typeof window !== "undefined") {
-      localStorage.setItem("token", token);
-      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem(access_key, token);
+      localStorage.setItem(user_token, JSON.stringify(user));
     }
     set({ user, token });
   },
 
   logout: () => {
     if (typeof window !== "undefined") {
-      localStorage.removeItem("token");
-      localStorage.removeItem("user");
+      localStorage.removeItem(access_key);
+      localStorage.removeItem(user_token);
     }
     set({ user: null, token: null });
   },
 
   initialize: () => {
     if (typeof window !== "undefined") {
-      const token = localStorage.getItem("token");
-      const userStr = localStorage.getItem("user");
+      const token = localStorage.getItem(access_key);
+      const userStr = localStorage.getItem(user_token);
       if (token && userStr) {
         try {
           const user = JSON.parse(userStr);
