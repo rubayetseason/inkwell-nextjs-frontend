@@ -23,3 +23,29 @@ export interface Blog {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface PaginatedResponse<T> {
+  blogs: T[];
+  total: number;
+  page: number;
+  totalPages: number;
+}
+
+export interface AuthResponse {
+  access_token: string;
+  user: User;
+}
+
+export type KanbanColumn = 'backlog' | 'todo' | 'doing' | 'done';
+export type KanbanPriority = 'low' | 'medium' | 'high' | 'urgent';
+
+export interface KanbanCard {
+  _id: string;
+  title: string;
+  description: string;
+  status: KanbanColumn;
+  priority: KanbanPriority;
+  owner: string;
+  order: number;
+  createdAt: string;
+}
