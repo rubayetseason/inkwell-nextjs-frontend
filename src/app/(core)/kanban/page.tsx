@@ -144,6 +144,7 @@ export default function KanbanPage() {
                   className="w-full pl-9 pr-4 py-2 text-sm bg-card border border-primary/30 rounded-xl focus:outline-none focus:border-primary text-foreground placeholder:text-muted-foreground"
                 />
               </div>
+
               <Button
                 onClick={handleAiMove}
                 disabled={isAiLoading || !aiInput.trim()}
@@ -157,6 +158,18 @@ export default function KanbanPage() {
                 )}
                 {isAiLoading ? "Moving..." : "Move"}
               </Button>
+            </div>
+
+            {/* Info box */}
+            <div className="mt-2 text-xs text-muted-foreground bg-muted/40 border border-border rounded-lg px-3 py-2">
+              <span className="font-medium text-foreground">Tip:</span> Write an
+              AI agent command such as{" "}
+              <span className="font-mono text-primary">
+                Move "Task Name" to "Column"
+              </span>
+              . Example:{" "}
+              <span className="font-mono">Move "Fix login bug" to "Doing"</span>
+              .
             </div>
           </div>
 
