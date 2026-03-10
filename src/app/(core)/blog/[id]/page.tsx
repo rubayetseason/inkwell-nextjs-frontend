@@ -178,6 +178,20 @@ export default function BlogDetailPage() {
             </div>
           </div>
 
+          <div className="mt-8 pb-8 border-b border-border">
+            <div className="flex flex-wrap items-center justify-between gap-4">
+              <div className="size-1"></div>
+              <div className="flex items-center gap-3">
+                <AIInsightButton
+                  blogId={blog._id}
+                  title={blog.title}
+                  content={blog.content}
+                />
+                <LikeDislikeButtons blog={blog} onUpdate={setBlog} size="lg" />
+              </div>
+            </div>
+          </div>
+
           {/* Thumbnail */}
           {blog.thumbnail && (
             <div className="relative h-64 sm:h-80 rounded-2xl overflow-hidden mb-10 bg-muted">

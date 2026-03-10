@@ -56,6 +56,7 @@ const ToolbarButton = ({
 
 export function BlogEditor({ content, onChange }: BlogEditorProps) {
   const editor = useEditor({
+    immediatelyRender: false,
     extensions: [
       StarterKit,
       Image.configure({ inline: false, allowBase64: true }),

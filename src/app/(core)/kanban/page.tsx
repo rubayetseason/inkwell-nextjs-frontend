@@ -132,44 +132,45 @@ export default function KanbanPage() {
               </div>
             </div>
 
-            {/* AI Command Bar */}
-            <div className="flex items-center gap-2 w-full sm:w-auto">
-              <div className="relative flex-1 sm:w-80">
-                <Sparkles className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-primary" />
-                <input
-                  value={aiInput}
-                  onChange={(e) => setAiInput(e.target.value)}
-                  onKeyDown={(e) => e.key === "Enter" && handleAiMove()}
-                  placeholder="AI: move urgent cards to doing..."
-                  className="w-full pl-9 pr-4 py-2 text-sm bg-card border border-primary/30 rounded-xl focus:outline-none focus:border-primary text-foreground placeholder:text-muted-foreground"
-                />
+            <div className="flex flex-col">
+              {/* AI Command Bar */}
+              <div className="flex items-center gap-2 w-full sm:w-auto">
+                <div className="relative flex-1 sm:w-80">
+                  <Sparkles className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-primary" />
+                  <input
+                    value={aiInput}
+                    onChange={(e) => setAiInput(e.target.value)}
+                    onKeyDown={(e) => e.key === "Enter" && handleAiMove()}
+                    placeholder="AI: move urgent cards to doing..."
+                    className="w-full pl-9 pr-4 py-2 text-sm bg-card border border-primary/30 rounded-xl focus:outline-none focus:border-primary text-foreground placeholder:text-muted-foreground"
+                  />
+                </div>
+
+                <Button
+                  onClick={handleAiMove}
+                  disabled={isAiLoading || !aiInput.trim()}
+                  size="sm"
+                  className="gap-1.5 shrink-0"
+                >
+                  {isAiLoading ? (
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                  ) : (
+                    <Send className="w-4 h-4" />
+                  )}
+                  {isAiLoading ? "Moving..." : "Move"}
+                </Button>
               </div>
 
-              <Button
-                onClick={handleAiMove}
-                disabled={isAiLoading || !aiInput.trim()}
-                size="sm"
-                className="gap-1.5 shrink-0"
-              >
-                {isAiLoading ? (
-                  <Loader2 className="w-4 h-4 animate-spin" />
-                ) : (
-                  <Send className="w-4 h-4" />
-                )}
-                {isAiLoading ? "Moving..." : "Move"}
-              </Button>
-            </div>
-
-            {/* Info box */}
-            <div className="mt-2 text-xs text-muted-foreground bg-muted/40 border border-border rounded-lg px-3 py-2">
-              <span className="font-medium text-foreground">Tip:</span> Write an
-              AI agent command such as{" "}
-              <span className="font-mono text-primary">
-                Move "Task Name" to "Column"
-              </span>
-              . Example:{" "}
-              <span className="font-mono">Move "Fix login bug" to "Doing"</span>
-              .
+              {/* Info box */}
+              <div className="max-w-md mt-2 text-sm text-black bg-gray-200 border border-border rounded-lg px-3 py-2">
+                <span className="font-medium text-foreground">Tip:</span> Write
+                an AI agent command such as{" "}
+                <span className="font-semibold text-orange-600">
+                  Move "Task Name" to "Column"
+                </span>
+                . Example:{" "}
+                <span className="">Move "Fix login bug" to "Doing"</span>.
+              </div>
             </div>
           </div>
 
