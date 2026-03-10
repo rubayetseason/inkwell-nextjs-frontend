@@ -8,7 +8,7 @@ import { useToast } from "@/hooks/use-toast";
 import { blogsApi } from "@/services/blogs.services";
 import { useAuthStore } from "@/store/auth.store";
 import { motion } from "framer-motion";
-import { ArrowLeft, ImageIcon, Save } from "lucide-react";
+import { ArrowLeft, ImageIcon, Loader2, Save } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -23,13 +23,14 @@ export default function CreateBlogPage() {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const { toast } = useToast();
-  const { user } = useAuthStore();
+  const { user, isLoading: isLoadingUser } = useAuthStore();
 
   useEffect(() => {
+    if (isLoadingUser) return;
     if (!user) {
       router.push("/login");
     }
-  }, [user]);
+  }, [user, isLoadingUser]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -81,6 +82,14 @@ export default function CreateBlogPage() {
   };
 
   if (!user) return null;
+
+  if (isLoadingUser) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <Loader2 className="w-8 h-8 text-primary animate-spin" />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen">

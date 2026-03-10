@@ -9,23 +9,22 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const { initialize, login, token } = useAuthStore();
 
   useEffect(() => {
-    initialize();
-  }, [initialize]);
+    const init = async () => {
+      initialize();
 
-  useEffect(() => {
-    // Refresh user data on mount if token exists
-    const savedToken = localStorage.getItem(access_key);
-    if (savedToken) {
-      authApi
-        .getMe()
-        .then((res) => {
-          login(res.data, savedToken);
-        })
-        .catch(() => {
-          localStorage.removeItem(access_key);
-          localStorage.removeItem(user_token);
-        });
-    }
+      const savedToken = localStorage.getItem(access_key);
+      if (!savedToken) return;
+
+      try {
+        const res = await authApi.getMe();
+        login(res.data, savedToken);
+      } catch {
+        localStorage.removeItem(access_key);
+        localStorage.removeItem(user_token);
+      }
+    };
+
+    init();
   }, []);
 
   return <>{children}</>;
